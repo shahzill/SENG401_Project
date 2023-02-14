@@ -1,23 +1,25 @@
-<!doctype html>
-<html lang = "en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-    <title></title>
-  </head>
-  <body>
+{% extends 'studenthub\base.html' %}
+{% block content %}
     <div className="Page">  
          
   
-        <div className="login">
+        <div className="signIn">
           <div> LoginPage </div>
-          
+          <div className="signInImage"><img src="UofC-Logo.jpg" alt="UofC-Logo"></div>
+          <form>
+              <div className="UCID-Bar">
+                <label for="ucid-input"><b>UCID</b></label>
+                <input id="ucid-input" type="number" placeholder="12345678" required>
+              </div>
+              <div className="Password-Bar">
+                <label for="password-input"><b>Password</b></label>
+                <input id="password-input" type="password" required>
+              </div>
+          </form>
           
           <div> <button onClick={handleLogin}> Login </button> </div>
       
         </div>
   
       </div>
-  </body>
-    
-</html>
+{% endblock %}

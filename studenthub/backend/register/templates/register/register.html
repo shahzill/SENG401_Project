@@ -1,26 +1,33 @@
-<!doctype html>
-<html lang = "en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-    <title></title>
-  </head>
-  <body>
+{% extends 'studenthub\base.html' %}
+{% block content %}
     <div className="Page">  
          
   
         <div className="Register">
           <h1> Register Page </h1>
-          <div className="Name">
-            
-          </div>
-          
+          <div className="registerImage"><img src="UofC-Logo.jpg" alt="UofC-Logo"></div>
+          <form>
+            <div className="RegFName-Bar">
+              <label for="regFName-input"><b>First Name</b></label>
+              <input id="regFName-input" type="text" placeholder="John" required>
+            </div>
+            <div className="RegLName-Bar">
+              <label for="regLName-input"><b>Last Name</b></label>
+              <input id="regLName-input" type="text" placeholder="Smith" required>
+            </div>
+            <div className="RegUCID-Bar">
+              <label for="regucid-input"><b>UCID</b></label>
+              <input id="regucid-input" type="number" placeholder="12345678" required>
+            </div>
+            <div className="RegPassword-Bar">
+              <label for="regpassword-input"><b>Password</b></label>
+              <input id="regpassword-input" type="password" required>
+            </div>
+        </form>
           
           <div> <button> Register </button> </div>
       
         </div>
   
       </div>
-  </body>
-    
-</html>
+{% endblock %}

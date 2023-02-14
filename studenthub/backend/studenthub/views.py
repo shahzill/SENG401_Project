@@ -3,5 +3,5 @@ from django.shortcuts import render
 
 def homepage(request):
     #return HttpResponse("about")
-    return render(request, 'main.html')
+    return render(request, 'studenthub\main.html')
 

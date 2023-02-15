@@ -14,6 +14,10 @@ How to run:
 
 4) Paste the http link in your browser
 
+Django admin login details:
+Username: admin
+password: django
+
 
 Group 5:
 Kauts Gaumit,

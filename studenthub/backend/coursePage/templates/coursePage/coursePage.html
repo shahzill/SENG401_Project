@@ -1,0 +1,54 @@
+{% extends 'studenthub\base.html' %}
+{% block content %}
+    <div className="Page">  
+     
+  
+      <div className="CoursePage">
+          <h1> Course Page </h1>
+          
+            <div className="CourseName">
+              <p>Course Name : {{ courseName }}</p>     
+            </div>
+
+            <div className="CourseProfessors">
+              <p>Course Professors :
+                {% for prof in courseProfessors.all %}
+                  
+                  <li>{{ prof }}</li>
+              
+                {% endfor %}
+              </p>
+                  
+            </div>
+
+            <div className="CourseName">
+              
+              <p>Course Overview : {{ courseSummary }}</p>     
+            </div>
+
+            <div className="CourseTutors">
+              <p>Course Tutors :
+                {% for tutors in courseTutors.all %}
+                  
+                  <li>{{ tutors }}</li>
+              
+                {% endfor %}
+              </p>     
+            </div>
+
+            <div className="CourseComments">
+              <p>Course Comments :
+                {% for comments in courseComments.all %}
+                  
+                  <li>{{ comments }}</li>
+              
+                {% endfor %}
+              </p>     
+            </div>
+          
+          
+      </div>
+  
+    </div>
+
+{% endblock %}

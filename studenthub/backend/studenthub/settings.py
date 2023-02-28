@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "signIn",
-    "register"
-    
+    "register",
+    "searchPage",
+    "coursePage",
+    "stuhub"
 ]
 
 MIDDLEWARE = [

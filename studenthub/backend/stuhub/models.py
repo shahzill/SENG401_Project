@@ -9,16 +9,6 @@ class Tutor(models.Model):
     def __str__(self):
         return self.tutorName
 
-
-class Comment(models.Model):
-    courseName = models.CharField('Course Name',max_length=100)
-    professorRating = models.CharField('Prof Rating 1-10',max_length=100)
-    courseComment = models.TextField('Comment')
-    commenterName =models.CharField('Commenters Name',max_length=100)
-
-    def __str__(self):
-        return self.courseComment + " :  "+ self.commenterName
-        
 class Professor(models.Model):
     profName = models.CharField('Professors Name',max_length=100)
     profEmailAddress = models.EmailField('Email Address')
@@ -26,7 +16,19 @@ class Professor(models.Model):
     profAbout = models.TextField('About')
 
     def __str__(self):
-        return self.profName + "      Email: " + self.profEmailAddress
+        return self.profName
+
+
+class Comment(models.Model):
+    courseName = models.CharField('Course Name',max_length=100)
+    professorRating = models.CharField('Prof Rating 1-10',max_length=100)
+    professorN = models.CharField('Professors Name',max_length=100)
+    courseComment = models.TextField('Comment')
+    commenterName =models.CharField('Commenters Name',max_length=100)
+
+    def __str__(self):
+        return self.courseName
+      
 
 
 class Course(models.Model):

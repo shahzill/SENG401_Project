@@ -14,7 +14,11 @@
               <p>Course Professors :
                 {% for prof in courseProfessors.all %}
                   
-                  <li>{{ prof }}</li>
+                  <li>{{ prof }}
+                    <div className="EmailAddress">
+                      <p>Email Address : {{ prof.profEmailAddress }}</p>
+                    </div>
+                  </li>
               
                 {% endfor %}
               </p>
@@ -30,7 +34,11 @@
               <p>Course Tutors :
                 {% for tutors in courseTutors.all %}
                   
-                  <li>{{ tutors }}</li>
+                  <li>{{ tutors }}
+                    <div className="EmailAddress">
+                      <p>Email Address : {{ tutors.tutorEmailAddress }}</p>
+                    </div>
+                  </li>
               
                 {% endfor %}
               </p>     
@@ -40,7 +48,7 @@
               <p>Course Comments :
                 {% for comments in courseComments.all %}
                   
-                  <li>{{ comments }}</li>
+                  <li>{{ comments.courseComment }} : {{ comments.commenterName }}</li>
               
                 {% endfor %}
               </p>     

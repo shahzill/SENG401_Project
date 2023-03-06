@@ -7,11 +7,11 @@
           <h1> Course Page </h1>
           
             <div className="CourseName">
-              <p>Course Name : {{ courseName }}</p>     
+              <p><strong>Course Name : </strong>{{ courseName }}</p>     
             </div>
 
             <div className="CourseProfessors">
-              <p>Course Professors :
+              <p><strong>Course Professors :</strong>
                 {% for prof in courseProfessors.all %}
                   
                   <li>{{ prof }}
@@ -27,11 +27,11 @@
 
             <div className="CourseName">
               
-              <p>Course Overview : {{ courseSummary }}</p>     
+              <p><strong>Course Overview :</strong> {{ courseSummary }}</p>     
             </div>
 
             <div className="CourseTutors">
-              <p>Course Tutors :
+              <p><strong> Tutors : </strong>
                 {% for tutors in courseTutors.all %}
                   
                   <li>{{ tutors }}
@@ -45,7 +45,7 @@
             </div>
 
             <div className="CourseComments">
-              <p>Course Comments :
+              <p><strong>Course Comments : </strong>
                 {% for comments in courseComments.all %}
                   
                   <li>{{ comments.courseComment }} : {{ comments.commenterName }}</li>

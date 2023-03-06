@@ -19,6 +19,7 @@ def register(request):
             form.save()
         user = form.cleaned_data.get('first_name')
         messages.success(request, 'Account successfully created for ' + user )
+        return redirect('http://127.0.0.1:8000/signIn')
 
     context = {'form': form}
     #return HttpResponse("about")

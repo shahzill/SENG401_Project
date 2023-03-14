@@ -14,7 +14,7 @@
               <p><strong>Course Professors :</strong>
                 {% for prof in courseProfessors.all %}
                   
-                  <li>{{ prof }}
+                  <li><a href="/profPage">{{ prof }} </a> 
                     <div className="EmailAddress">
                       <p>Email Address : {{ prof.profEmailAddress }}</p>
                     </div>
@@ -34,7 +34,7 @@
               <p><strong> Tutors : </strong>
                 {% for tutors in courseTutors.all %}
                   
-                  <li>{{ tutors }}
+                  <li><a href="/tutorPage">{{ tutors }} </a>
                     <div className="EmailAddress">
                       <p>Email Address : {{ tutors.tutorEmailAddress }}</p>
                     </div>

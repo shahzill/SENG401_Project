@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "register",
     "searchPage",
     "coursePage",
+    "profPage",
+    "tutorPage",
     "stuhub"
 ]
 

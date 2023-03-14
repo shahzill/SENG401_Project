@@ -25,5 +25,7 @@ urlpatterns = [
     path("register/", include('register.urls')),
     path("searchPage/", include('searchPage.urls')),
     path("coursePage/", include('coursePage.urls')),
+    path("profPage/", include('profPage.urls')),
+    path("tutorPage/", include('tutorPage.urls')),
     path('', views.homepage)
 ]

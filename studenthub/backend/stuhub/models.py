@@ -1,6 +1,7 @@
 from django.db import models
 
 class Tutor(models.Model):
+    tutorID = models.CharField('Tutors ID',max_length=100)
     tutorName = models.CharField('Tutors Name',max_length=100)
     tutorEmailAddress = models.EmailField('Email Address')
     tutorPhoneNumber = models.TextField('PhoneNumber')
@@ -10,6 +11,7 @@ class Tutor(models.Model):
         return self.tutorName
 
 class Professor(models.Model):
+    profID = models.CharField('Professors ID',max_length=100)
     profName = models.CharField('Professors Name',max_length=100)
     profEmailAddress = models.EmailField('Email Address')
     profPhoneNumber = models.TextField('PhoneNumber')

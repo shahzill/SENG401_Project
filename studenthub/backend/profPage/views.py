@@ -15,13 +15,19 @@ from .forms import CreateUserForm
 
 from searchPage import views as searchPageViews
 
-def profPage(request):
-    
+def profPage(request, name, id):
+    print(name)
     authentication = signInViews.Authenticate()
     print(authentication)
     if authentication == 1:
-        
-        return render(request, 'profPage/profPage.html')
+        courseList = Course.objects.all()
+        for courseReq in courseList:
+            if courseReq.courseName.lower() == searchPageViews.course.lower():
+                for prof in (courseReq.courseProfessors).all():
+                    if prof.profName == name:
+                        if prof.profID == id:
+                            return render(request, 'profPage/profPage.html', {
+                            'courseProfessors': prof})
        
     else:
        return redirect('http://127.0.0.1:8000/signIn')

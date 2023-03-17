@@ -4,7 +4,24 @@
      
   
       <div className="ProfPage">
-          <h1> Proff Page </h1>
+          <p> Hi! My name is <strong>{{courseProfessors.profName}}</strong> and welcome to my page </p>
+
+          <div className="Id">
+            <p>My official ID is <strong>{{courseProfessors.profID}}</strong> </p>
+                
+          </div>
+
+          <div className="Contact">
+            <p>You can either reach me at my official email <strong>{{courseProfessors.profEmailAddress}}</strong> 
+            or my cell number <strong>{{courseProfessors.profPhoneNumber}}</strong> </p>
+                
+          </div>
+
+          <div className="About">
+            <p> <strong>Well lets get to know me a little bit more!</strong></p>
+            <p>{{courseProfessors.profAbout}}</p> 
+                
+          </div>
           
            
           

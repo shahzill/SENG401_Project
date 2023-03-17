@@ -14,10 +14,7 @@
               <p><strong>Course Professors :</strong>
                 {% for prof in courseProfessors.all %}
                   
-                  <li><a href="/profPage">{{ prof }} </a> 
-                    <div className="EmailAddress">
-                      <p>Email Address : {{ prof.profEmailAddress }}</p>
-                    </div>
+                  <li><a href="/profPage/{{prof}}/{{prof.profID}}">{{ prof }} </a> 
                   </li>
               
                 {% endfor %}

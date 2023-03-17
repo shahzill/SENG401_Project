@@ -16,7 +16,7 @@ from .forms import CreateUserForm
 from searchPage import views as searchPageViews
 
 def profPage(request, name, id):
-    print(name)
+    
     authentication = signInViews.Authenticate()
     print(authentication)
     if authentication == 1:

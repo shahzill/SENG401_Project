@@ -31,7 +31,7 @@
               <p><strong> Tutors : </strong>
                 {% for tutors in courseTutors.all %}
                   
-                  <li><a href="/tutorPage">{{ tutors }} </a>
+                  <li><a href="/tutorPage/{{tutors}}/{{tutors.tutorID}}">{{ tutors }} </a>
                     <div className="EmailAddress">
                       <p>Email Address : {{ tutors.tutorEmailAddress }}</p>
                     </div>

@@ -21,12 +21,18 @@ def coursePage(request):
     if authentication == 1:
 
         if request.method == "POST":
-            form = CommentForm(request.POST)
+            profRating = request.POST.get("ProfRating")
+            prof = request.POST.get("ProfName")
+            courseComments = request.POST.get("Comment")
+            commenterName = request.POST.get("CommenterName")
+            com = Comment.objects.create(
+                courseName=searchPageViews.course.upper(),
+                professorRating = profRating,
+                professorN = prof,
+                courseComment = courseComments,
+                commenterName = commenterName
 
-            if form.is_valid():
-                form.save()
-                       
-                
+            )       
             return HttpResponseRedirect('/coursePage?submitted=True')
         else:
             form = CommentForm
@@ -53,4 +59,18 @@ def coursePage(request):
        return redirect('http://127.0.0.1:8000/signIn')
 
 
+def add_comment(request):
+    if request.method == "POST":
+        profRating = request.POST.get("ProfRating")
+        prof = request.POST.get("ProfName")
+        courseComments = request.POST.get("Comment")
+        commenterName = request.POST.get("CommenterName")
+        com = Comment.objects.create(
+            courseName='ENGG200',
+            professorRating = profRating,
+            professorN = prof,
+            courseComment = courseComments,
+            commenterName = commenterName
+
+        )
 

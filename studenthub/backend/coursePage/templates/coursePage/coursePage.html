@@ -46,11 +46,20 @@
               <p><strong>Course Comments : </strong>
                 {% for comments in allComments %}
                   
-                <li>{{ comments.courseComment }} : {{ comments.commenterName }}</li>
+                <li>Professors's Name : {{ comments.professorN }}
+                  <br>
+                  Comment : {{ comments.courseComment }}
+                  <br>
+                  Will you take this course with this professor again?  {{ comments.professorRating}}
+                  <br>
+                  Commenter's Name : {{ comments.commenterName }}
+                </li>
               
                 {% endfor %}
               </p>     
             </div>
+
+            
 
             <div className="AddComments">
               {% if submitted %}
@@ -60,8 +69,25 @@
                 <form action="" method="POST">
                   {% csrf_token %}
 
-                  {{  form.as_p  }}
+                  <strong>Leave a comment! </strong>
 
+
+                  
+                  <br>
+                  <p><strong>Professor : </strong><select type="text" name="ProfName" required>
+                    {% for prof in courseProfessors.all %}
+                  
+                      <option value="{{prof}}">{{prof.profName}}</option>
+              
+                    {% endfor %}
+                  </select>
+                  <br>
+                  <p><strong>Course Comments : </strong><input type="text" name="Comment" required>
+                  <br>
+                  <p><strong>Will you take this course with this professor again? : </strong><input type="text" name="ProfRating" required>
+                  <br> 
+                  <p><strong>Commenter's Name : </strong><input type="text" name="CommenterName" required>
+                  <br>
                   <input type="submit" value="Submit" class="btn btn-secondary">
                 </form>
               {% endif %}

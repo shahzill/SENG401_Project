@@ -23,7 +23,7 @@ class Professor(models.Model):
 
 class Comment(models.Model):
     courseName = models.CharField('Course Name',max_length=100)
-    professorRating = models.CharField('Prof Rating 1-10',max_length=100)
+    professorRating = models.CharField('Will you take this course with this professor again?',max_length=100)
     professorN = models.CharField('Professors Name',max_length=100)
     courseComment = models.TextField('Comment')
     commenterName =models.CharField('Commenters Name',max_length=100)

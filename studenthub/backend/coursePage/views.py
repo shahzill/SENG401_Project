@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from signIn import views as signInViews
 from stuhub.models import Course
+from stuhub.models import Comment
 from stuhub.forms import CommentForm
 from django.contrib import messages
 
@@ -21,25 +22,32 @@ def coursePage(request):
 
         if request.method == "POST":
             form = CommentForm(request.POST)
+
             if form.is_valid():
                 form.save()
-                return HttpResponseRedirect('/coursePage?submitted=True')
+                       
+                
+            return HttpResponseRedirect('/coursePage?submitted=True')
         else:
             form = CommentForm
             if 'submitted' in request.GET:
                 submitted = True
             courseList = Course.objects.all()
+            commentList = Comment.objects.all()
+            coursecom =[]
             for courseReq in courseList:
                 if courseReq.courseName.lower() == searchPageViews.course.lower():
-                # for courseee in courseReq.courseProfessors.all:
-                    #    print(courseee.CourseProfessors)
+                    for commentReq in commentList:
+                        if commentReq.courseName.lower() == searchPageViews.course.lower():
+                            coursecom.append(commentReq)
+                
                     return render(request, 'coursePage/coursePage.html', {'courseName' : courseReq.courseName.upper(),
                     'courseProfessors': courseReq.courseProfessors,
                     'courseSummary': courseReq.courseSummary,
                     'courseTutors': courseReq.courseTutors,
-                    'courseComments': courseReq.courseComments,
                     'form':form,
-                    'submitted':submitted})
+                    'submitted':submitted,
+                    'allComments': coursecom})
        
     else:
        return redirect('http://127.0.0.1:8000/signIn')

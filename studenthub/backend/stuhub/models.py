@@ -37,7 +37,6 @@ class Course(models.Model):
     courseName = models.CharField('Course Name', max_length=100)
     courseProfessors = models.ManyToManyField(Professor, blank=True)
     courseSummary = models.TextField(blank=True)
-    courseComments = models.ManyToManyField(Comment, blank=True)
     courseTutors = models.ManyToManyField(Tutor, blank=True)
     
     def __str__(self):

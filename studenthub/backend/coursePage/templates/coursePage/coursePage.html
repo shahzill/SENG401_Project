@@ -41,11 +41,12 @@
               </p>     
             </div>
 
+
             <div className="CourseComments">
               <p><strong>Course Comments : </strong>
-                {% for comments in courseComments.all %}
+                {% for comments in allComments %}
                   
-                  <li>{{ comments.courseComment }} : {{ comments.commenterName }}</li>
+                <li>{{ comments.courseComment }} : {{ comments.commenterName }}</li>
               
                 {% endfor %}
               </p>     

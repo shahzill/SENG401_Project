@@ -11,7 +11,7 @@ from stuhub.models import Course
 
 from django.contrib import messages
 
-from .forms import CreateUserForm
+
 
 from searchPage import views as searchPageViews
 

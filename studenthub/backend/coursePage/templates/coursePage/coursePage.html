@@ -1,17 +1,22 @@
 {% extends 'studenthub\base.html' %}
+{% load static %}
 {% block content %}
-    <div className="Page">  
+<head>
+  <link rel="stylesheet" href="{% static 'coursePage.css' %}">
+</head>
+    <div class="Page">  
      
   
-      <div className="CoursePage">
+      <div class="CoursePage">
           <h1> Course Page </h1>
           
-            <div className="CourseName">
-              <p><strong>Course Name : </strong>{{ courseName }}</p>     
+            <div class="CourseName">
+              <h2>Course Name: </h2>
+              {{ courseName }}     
             </div>
 
-            <div className="CourseProfessors">
-              <p><strong>Course Professors :</strong>
+            <div class="CourseProfessors">
+              <h2>Course Professors:</h2>
                 {% for prof in courseProfessors.all %}
                   
                   <li><a href="/profPage/{{prof}}/{{prof.profID}}">{{ prof }} </a> 
@@ -24,11 +29,11 @@
 
             <div className="CourseName">
               
-              <p><strong>Course Overview :</strong> {{ courseSummary }}</p>     
+              <h2>Course Overview:</h2> {{ courseSummary }}</p>     
             </div>
 
             <div className="CourseTutors">
-              <p><strong> Tutors : </strong>
+              <h2> Tutors: </h2>
                 {% for tutors in courseTutors.all %}
                   
                   <li><a href="/tutorPage/{{tutors}}/{{tutors.tutorID}}">{{ tutors }} </a>

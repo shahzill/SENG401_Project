@@ -1,25 +1,35 @@
 {% extends 'studenthub\base.html' %}
+{% load static %}
 {% block content %}
+<head>
+  <link rel="stylesheet" href="{% static '/searchPage.css' %}">
+</head>
     <div className="Page">  
          
   
-      <div className="SearchPage">
-          <h1> Search Page </h1>
-          <form method="POST" action="">
-            {%csrf_token%}
-              <div className="SearchCoursesBar">
-                <label for="search-course"><b>Course Name</b></label>
-                <input name="course" id="searchCourses" type="text" required>
-              </div>
-
-              <div> <button type="search"> Search </button> </div>
-          </form>
-        
+      <div class="SearchPage">
+          <h1> Search a Course </h1>
+          <div class = "test">
+            <form method="POST" action="">
+              {%csrf_token%}
+                <div className="SearchCoursesBar">
+                  <label for="search-course"><b>Course Code</b></label>
+                  <input name="course" id="searchCourses" type="text" required>
+                  <button type="search"> Search </button> 
+                </div>
+            </form>
+          </div>
          
+          <div class = "test">
+         <div class="course-list">
           {% for course in courseList %}
-            <li>{{ course.courseName }}</li>
-            
+          <li>{{ course.courseName }}</li>
+          
           {% endfor %}
+         </div>
+        </div>
+         
+          
           
       </div>
   

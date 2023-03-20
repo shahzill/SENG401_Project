@@ -1,9 +1,14 @@
 {% extends 'studenthub\base.html' %}
-    {% block content %}
-    <div className="Page">  
-    <h1>Welcome to Student Hub</h1>
-      
-        <div className="login">
+{% load static %}
+{% block content %}
+<head>
+  <link rel="stylesheet" href="{% static '\main.css' %}">
+</head>
+    <div class="Page"> 
+    
+    <h1>Welcome to the UofC Student Hub :)</h1>
+      <div>
+        <div class="login">
           <div> Please click the button to sign in to your account </div>
           <a href = "{% url 'signInPage' %}">
           <button className="SignIn">SignIn</button>
@@ -11,12 +16,14 @@
                 
         </div>
 
-        <div className="Register">
+        <div class="Register">
             <div> Please click the button to register for the Student Hub </div>
             <a href = "{% url 'registerPage' %}">
             <button className="Register">Register</button>
             </a>
                   
-          </div>
+        </div>
+      </div>
+       
       </div>
       {% endblock %}

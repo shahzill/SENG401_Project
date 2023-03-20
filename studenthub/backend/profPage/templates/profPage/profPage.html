@@ -1,9 +1,14 @@
 {% extends 'studenthub\base.html' %}
+{% load static %}
 {% block content %}
-    <div className="Page">  
+<head>
+  <link rel="stylesheet" href="{% static 'profPage.css' %}">
+</head>
+    <div class="Page">  
      
   
-      <div className="ProfPage">
+      <div class="ProfPage">
+        <h1 class="name">{{courseProfessors.profName}}</h1>
           <p> Hi! My name is <strong>{{courseProfessors.profName}}</strong> and welcome to my page </p>
 
           <div className="Id">

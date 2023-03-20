@@ -22,6 +22,4 @@ from . import views
 
 urlpatterns = [
     path('<str:name>/<str:id>', views.tutorPage, name='tutorPage'),
-    
-    
 ]

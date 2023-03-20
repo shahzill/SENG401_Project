@@ -18,7 +18,7 @@ body{
 }
 
 
-.TutorPage {
+.ProfPage {
     display: flex;
     flex-direction: column;
 }
@@ -32,7 +32,6 @@ h1{
     text-transform: uppercase;
 
    }
-   
 .name{    
     padding-bottom: 5%;
 }

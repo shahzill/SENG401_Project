@@ -2,13 +2,13 @@
 {% load static %}
 {% block content %}
 <head>
-  <link rel="stylesheet" href="{% static 'coursePage.css' %}">
+  <link rel="stylesheet" href="{% static '/tutorPage.css' %}">
 </head>
     <div class="Page">  
      
   
       <div class="tutorPage">
-        <h1>{{courseTutors.tutorName}}</h1>
+        <h1 class="name">{{courseTutors.tutorName}}</h1>
 
         <div class="intro">  <p> Hi! My name is <strong>{{courseTutors.tutorName}}</strong> and welcome to my page </p>  </div>
        

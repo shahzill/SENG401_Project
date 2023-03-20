@@ -8,13 +8,14 @@
      
   
       <div class="CoursePage">
-          <h1> Course Page </h1>
-          
-            <div class="CourseName">
-              <h2>Course Name: </h2>
-              {{ courseName }}     
-            </div>
+          <h1> Course Page: {{ courseName }}  </h1>
 
+          <div className="CourseName">
+              
+            <h2>Course Overview:</h2> {{ courseSummary }}</p>     
+          </div>
+
+          
             <div class="CourseProfessors">
               <h2>Course Professors:</h2>
                 {% for prof in courseProfessors.all %}
@@ -25,11 +26,6 @@
                 {% endfor %}
               </p>
                   
-            </div>
-
-            <div className="CourseName">
-              
-              <h2>Course Overview:</h2> {{ courseSummary }}</p>     
             </div>
 
             <div className="CourseTutors">
@@ -47,27 +43,30 @@
             </div>
 
 
-            <div className="CourseComments">
-              <p><strong>Course Comments : </strong>
+            <div class="CourseComments">
+              <h3>Course Comments : </h3>
                 {% for comments in allComments %}
-                  
-                <li>Professors's Name : {{ comments.professorN }}
+                
+                <div class="comments">
+                <p>
+                  <div class="field">Professors's Name:</div> {{ comments.professorN }}
                   <br>
-                  Comment : {{ comments.courseComment }}
+                  <div class="field">Comment:</div>  {{ comments.courseComment }}
                   <br>
-                  Will you take this course with this professor again?  {{ comments.professorRating}}
+                  <div class="field">Will you take this course with this professor again?</div>  {{ comments.professorRating}}
                   <br>
-                  Commenter's Name : {{ comments.commenterName }}
-                </li>
+                  <div class="field">Commenter's Name: </div> {{ comments.commenterName }}
+                </p>
+              </div>
                 <br>
               
                 {% endfor %}
-              </p>     
+               
             </div>
 
             
 
-            <div className="AddComments">
+            <div class="AddComments">
               {% if submitted %}
                 <p>Your comment was submitted!</p>
               {% else %}
@@ -75,27 +74,30 @@
                 <form action="" method="POST">
                   {% csrf_token %}
 
-                  <strong>Leave a comment! </strong>
+                  <h3>Leave a comment! </h3>
 
-
+                 <div class="comment-fields">
+                  <div>Professor: </div> 
+                  <div>
+                    <select type="text" name="ProfName" required>
+                      {% for prof in courseProfessors.all %}
+                    
+                        <option value="{{prof}}">{{prof.profName}}</option>
+                
+                      {% endfor %}
+                    </select>
+                  </div>
+                  <div>Course Comments:</div> 
+                  <div> <input type="text" name="Comment" required></div>
+    
+                  <div>Will you take this course with this professor again? :</div>
+                  <div> <input type="text" name="ProfRating" required> </div> 
+                  <div >Commenter's Name : </div>
+                  <div> <input type="text" name="CommenterName" required> </div>
                   
-                  <br>
-                  <p>Professor : <select type="text" name="ProfName" required>
-                    {% for prof in courseProfessors.all %}
-                  
-                      <option value="{{prof}}">{{prof.profName}}</option>
-              
-                    {% endfor %}
-                  </select>
-                  <br>
-                  <p>Course Comments : <input type="text" name="Comment" required>
-                  <br>
-                  <p>Will you take this course with this professor again? : <input type="text" name="ProfRating" required>
-                  <br> 
-                  <p>Commenter's Name : <input type="text" name="CommenterName" required>
-                  <br>
                   <input type="submit" value="Submit" class="btn btn-secondary">
                 </form>
+            </div>
               {% endif %}
           
 

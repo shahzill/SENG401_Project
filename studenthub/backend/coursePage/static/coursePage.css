@@ -12,9 +12,9 @@ body{
 
 .Page {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     justify-content: center;
-
+    padding: 0 10%;
 }
 
 
@@ -41,6 +41,20 @@ h2{
     /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 
 }
+h3{
+    font-size: 20px;
+    color: #9c6143;
+   
+    font-weight: bold;
+    /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+
+}
+
+.field{
+    font-style:normal;
+    color: #9c6143;
+    font-weight: bold;
+}
 
 p, li{
     color: #071013;
@@ -52,7 +66,7 @@ p, li{
     list-style-type: none;
     /* border-color: rgb(189, 189, 189); */
     background-color: #ffffff;
-    padding: 7px;
+    padding: 3px;
     font-style: italic;
 }
 
@@ -60,6 +74,17 @@ p, li{
     /* border-style: solid;
     border-width: 1px; */
     list-style-type: none;
-    background-color: #b38c78;
-    color: white;
+    color: #ffffff;
+    background-color: #d1b6a9;
+
+}
+
+a {
+    color: #9c6143;
+}
+
+.comment-fields{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }

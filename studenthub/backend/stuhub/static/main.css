@@ -9,6 +9,14 @@ body{
     font-family:'Courier New', Courier, monospace
 }
 
+img {
+    width: 190px;
+    height: 150px;
+    margin-top: 10px;
+    margin-left: 600px;
+    margin-bottom: 40px;
+    display: block;
+}
 
 .Page {
     display: flex;
@@ -55,4 +63,6 @@ button:hover{
     background-color: #d1b6a9;
     color: beige;
 }
+
+
 

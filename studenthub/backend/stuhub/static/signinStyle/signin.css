@@ -1,0 +1,38 @@
+img {
+    width: 170px;
+    height: 100px;
+    margin: auto;
+    display: block;
+}
+
+form{
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+.signIn {
+    text-align: center;
+    background-color: white;
+    height: 260px;
+    width: 300px;
+    margin: auto;
+    padding: 15px;
+    display: block;
+    border: 3px solid #ccc;
+}
+
+input{
+    width: 50%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+button{
+    width: 70px;
+}
+
+.container_register{
+    margin-top: 5px;
+    font-size:medium;
+}

@@ -21,8 +21,5 @@ from django.conf.urls import include
 from . import views
 
 urlpatterns = [
-    path('', views.searchPage, name='searchPage'),
-    
-    
-    
+    path('', views.searchPage, name='searchPage')
 ]

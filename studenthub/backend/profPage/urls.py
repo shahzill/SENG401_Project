@@ -21,7 +21,7 @@ from django.conf.urls import include
 from . import views
 
 urlpatterns = [
-    path('<str:name>/<str:id>', views.profPage, name='profPage'),
+    path('<str:name>/<str:id>/<str:courseName>', views.profPage, name='profPage'),
     
     
 ]

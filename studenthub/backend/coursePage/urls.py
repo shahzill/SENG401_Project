@@ -22,6 +22,8 @@ from . import views
 
 urlpatterns = [
     path('', views.coursePage, name='coursePage'),
+    path('<str:course>', views.coursePageLink, name='coursePageLink'),
     
     
 ]
+

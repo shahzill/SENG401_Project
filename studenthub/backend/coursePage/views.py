@@ -75,6 +75,7 @@ def add_comment(request):
         )
 
 def coursePageLink(request,course):
+    searchPageViews.course = course
     submitted = False
     authentication = signInViews.Authenticate()
     print(authentication)

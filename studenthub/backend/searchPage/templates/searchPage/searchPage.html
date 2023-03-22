@@ -20,16 +20,15 @@
             </form>
           </div>
          
-          <div class = "test">
+        <div class = "test">
          <div class="course-list">
           {% for course in courseList %}
-          <li>{{ course.courseName }}</li>
-          
+          <li><a href ="/coursePage/{{course}}">{{ course.courseName }} </a>
+          </li>
           {% endfor %}
          </div>
         </div>
-         
-          
+        
           
       </div>
   

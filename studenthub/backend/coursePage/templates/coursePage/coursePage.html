@@ -20,7 +20,7 @@
               <h2>Course Professors:</h2>
                 {% for prof in courseProfessors.all %}
                   
-                  <li><a href="/profPage/{{prof}}/{{prof.profID}}">{{ prof }} </a> 
+                  <li><a href="/profPage/{{prof}}/{{prof.profID}}/{{courseName}}">{{ prof }} </a> 
                   </li>
               
                 {% endfor %}
@@ -104,9 +104,11 @@
 
             </div>
 
-            <div className="BackToSeachPage"><a href="/searchPage"> Search another course?</a></div>
-            
+            <div className="BackToSeachPage">
+              <a href="/searchPage"> Search another course?</a>
 
+              <a href="/tutorPage/becomeTutorPage"> Become a Tutor</a>
+            </div>
 
           
           

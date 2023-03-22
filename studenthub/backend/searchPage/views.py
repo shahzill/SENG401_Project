@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from signIn import views
-from stuhub.models import Course
+from stuhub.models import Course, CourseRequest
 
 from django.contrib import messages
 
@@ -24,19 +24,34 @@ def searchPage(request):
     course = None
     global reqMethod
     reqMethod = request.method
+    submitted = False
+    if 'submitted' in request.GET:
+            
+            print("ICOME HERE")
     if request.method == 'POST':
+        global newCourse 
+        newCourse = False
         
         course = request.POST.get('course')
+        
+  
         for courseReq in courseList:
             if courseReq.courseName.lower() == course.lower():
-              return redirect('http://127.0.0.1:8000/coursePage')  
+              newCourse = True
+              return redirect('http://127.0.0.1:8000/coursePage') 
+        
+        if newCourse == False:
+                submitted = True
+                com = CourseRequest.objects.create(
+                    courseName=course
 
-          
+            )
+             
         
     else:
         print("NOOOO")
     if authentication == 1:
-        return render(request, 'searchPage/searchPage.html', {'courseList': courseList})
+        return render(request, 'searchPage/searchPage.html', {'courseList': courseList, 'submitted':submitted})
     else:
        return redirect('http://127.0.0.1:8000/signIn')
 

@@ -27,7 +27,31 @@
           </li>
           {% endfor %}
          </div>
+        
+         
         </div>
+        {% if submitted %}
+          <p>Your comment was submitted!</p>
+        {% else %}
+        
+          <div class = "test">
+            <div>Dont see what you're looking for? Request to have it added:</div>
+          </div>
+          
+          
+        
+          <form action="" method="POST">
+            {% csrf_token %}
+            <div class = "test">
+              <div> <input type=text  name="course" required></div>
+              <div> <input type="submit" value="Submit" class="btn btn-secondary"></div>
+            </div>
+          {% endif %}
+          
+
+          
+        </form>
+        
         
           
       </div>

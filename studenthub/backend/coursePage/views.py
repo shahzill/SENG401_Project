@@ -66,7 +66,7 @@ def add_comment(request):
         courseComments = request.POST.get("Comment")
         commenterName = request.POST.get("CommenterName")
         com = Comment.objects.create(
-            courseName='ENGG200',
+            courseName=searchPageViews.course,
             professorRating = profRating,
             professorN = prof,
             courseComment = courseComments,

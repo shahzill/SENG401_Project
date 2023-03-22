@@ -1,3 +1,4 @@
+{% load static %}
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="http://127.0.0.1:8000/">Home Page</a>
@@ -14,7 +15,9 @@
           </li>
        
         </ul>
-        
+        <div class="navbar-nav ms-auto">
+          <img src="{% static 'images/UofC-Logo.jpg' %}" alt="UofC-Logo" class="img-fluid rounded-circle" style="max-width: 100px; max-height: 100px;">
+        </div>
       </div>
     </div>
   </nav>

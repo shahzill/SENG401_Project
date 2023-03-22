@@ -74,3 +74,26 @@ def add_comment(request):
 
         )
 
+def coursePage(request,course):
+    submitted = False
+    authentication = signInViews.Authenticate()
+    print(authentication)
+    if authentication == 1:
+        form = CommentForm
+        if 'submitted' in request.GET:
+            submitted = True
+        courseList = Course.objects.all()
+        commentList = Comment.objects.all()
+        coursecom = []
+        for courseReq in courseList:
+            if courseReq.courseName.lower() == course.lower():
+                
+                return render(request, 'coursePage/coursePage.html', {'courseName' : courseReq.courseName.upper(),
+                    'courseProfessors': courseReq.courseProfessors,
+                    'courseSummary': courseReq.courseSummary,
+                    'courseTutors': courseReq.courseTutors,
+                    'form':form,
+                    'submitted':submitted,
+                    'allComments': coursecom})
+    else:
+        return redirect('http://127.0.0.1:8000/signIn')

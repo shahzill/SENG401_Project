@@ -20,8 +20,12 @@ def searchPage(request):
     authentication = views.Authenticate()
     print(authentication)
     courseList = Course.objects.all()
+    global course 
+    course = None
+    global reqMethod
+    reqMethod = request.method
     if request.method == 'POST':
-        global course 
+        
         course = request.POST.get('course')
         for courseReq in courseList:
             if courseReq.courseName.lower() == course.lower():

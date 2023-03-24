@@ -1,0 +1,58 @@
+
+{% load static %}
+{% block content %}
+<head>
+  <link rel="stylesheet" href="{% static '/tutorPage.css' %}">
+</head>
+
+
+    <div class="Page">  
+      <div class="becomeTutorPage">
+        <h1>Apply To Become A Tutor</h1>
+          <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for={{form.appUCID}}<b>UCID: </b></label>
+              {{form.appUCID}}
+            </div>
+            <div class="form-group">
+              <label for={{form.appFullName}}<b>Full Name: </b></label>
+              {{form.appFullName}}
+            </div>
+            <div class="RegUCID-Bar">
+              <label for={{form.appEmail}}<b>Email Address: </b></label>
+              {{form.appEmail}}
+            </div>
+            <div class="RegUCID-Bar">
+              <label for={{form.appPhoneNum}}<b>Phone Number: </b></label>
+              {{form.phoneNum}}
+            </div>
+            <div class="RegUCID-Bar">
+              <label for={{form.course}}<b>Course to Tutor: </b></label>
+              {{form.course}}
+            </div>
+            <div class="RegUCID-Bar">
+              <label for={{form.major}}<b>Major: </b></label>
+              {{form.major}}
+            </div>
+            <div class="RegUCID-Bar">
+              <label for={{form.year}}<b>Year: </b></label>
+              {{form.year}}
+            </div>
+            <button type ="submit">Submit</button>
+
+          </form>
+          {{form.errors}}
+      </div>
+    </div>
+
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+{% endblock %}

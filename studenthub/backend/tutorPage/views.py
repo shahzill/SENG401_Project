@@ -10,7 +10,7 @@ from signIn import views as signInViews
 from stuhub.models import Course
 
 from django.contrib import messages
-
+from .forms import applyTutorForm
 
 
 from searchPage import views as searchPageViews
@@ -34,4 +34,14 @@ def tutorPage(request, name, id):
 
 
 
-
+def becomeTutorPage(request):
+    form = applyTutorForm()
+    if request.method == 'POST':
+        form = applyTutorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Application Successfully Submitted!')
+            
+            # return redirect('becomeTutorPage/becomeTutor.html')
+    
+    return render(request, 'becomeTutorPage/becomeTutor.html', {'form':form})

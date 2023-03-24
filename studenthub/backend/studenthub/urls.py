@@ -27,5 +27,6 @@ urlpatterns = [
     path("coursePage/", include('coursePage.urls')),
     path("profPage/", include('profPage.urls')),
     path("tutorPage/", include('tutorPage.urls')),
+    path("tutorPage/becomeTutorPage/", include('tutorPage.urls')),
     path('', views.homepage)
 ]

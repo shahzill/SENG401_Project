@@ -45,5 +45,15 @@ class Course(models.Model):
 class CourseRequest(models.Model):
     courseName = models.CharField('Course Name', max_length=100)
 
+class Applicant(models.Model):
+    appUCID = models.CharField('UCID',max_length=10, primary_key= True)
+    appFullName =  models.CharField('Full Name', max_length=100,default="")
+    appEmail = models.EmailField('Email', max_length=100,default="")
+    appPhoneNum = models.IntegerField('Phone Number',default = 0)
+    course = models.CharField('course',max_length=100)
+    major = models.CharField('major',max_length=100)
+    year = models.CharField('year',max_length=100)
+
+
 def __str__(self):
     return self.courseName

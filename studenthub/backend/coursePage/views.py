@@ -18,6 +18,9 @@ def coursePage(request):
     submitted = False
     authentication = signInViews.Authenticate()
     print(authentication)
+    courseList = Course.objects.all()
+    commentList = Comment.objects.all()
+    coursecom =[]
     if authentication == 1:
 
         if request.method == "POST":
@@ -32,15 +35,13 @@ def coursePage(request):
                 courseComment = courseComments,
                 commenterName = commenterName
 
-            )       
+            ) 
             return HttpResponseRedirect('/coursePage?submitted=True')
         else:
             form = CommentForm
             if 'submitted' in request.GET:
                 submitted = True
-            courseList = Course.objects.all()
-            commentList = Comment.objects.all()
-            coursecom =[]
+            
             for courseReq in courseList:
                 if courseReq.courseName.lower() == searchPageViews.course.lower():
                     for commentReq in commentList:
@@ -66,7 +67,7 @@ def add_comment(request):
         courseComments = request.POST.get("Comment")
         commenterName = request.POST.get("CommenterName")
         com = Comment.objects.create(
-            courseName=searchPageViews.course,
+            courseName='ENGG200',
             professorRating = profRating,
             professorN = prof,
             courseComment = courseComments,
@@ -79,22 +80,43 @@ def coursePageLink(request,course):
     submitted = False
     authentication = signInViews.Authenticate()
     print(authentication)
+    courseList = Course.objects.all()
+    commentList = Comment.objects.all()
+    coursecom =[]
+    
     if authentication == 1:
-        form = CommentForm
-        if 'submitted' in request.GET:
-            submitted = True
-        courseList = Course.objects.all()
-        commentList = Comment.objects.all()
-        coursecom = []
-        for courseReq in courseList:
-            if courseReq.courseName.lower() == course.lower():
-                
-                return render(request, 'coursePage/coursePage.html', {'courseName' : courseReq.courseName.upper(),
-                    'courseProfessors': courseReq.courseProfessors,
-                    'courseSummary': courseReq.courseSummary,
-                    'courseTutors': courseReq.courseTutors,
-                    'form':form,
-                    'submitted':submitted,
-                    'allComments': coursecom})
+        if request.method == "POST":
+            profRating = request.POST.get("ProfRating")
+            prof = request.POST.get("ProfName")
+            courseComments = request.POST.get("Comment")
+            commenterName = request.POST.get("CommenterName")
+            com = Comment.objects.create(
+                courseName=searchPageViews.course.upper(),
+                professorRating = profRating,
+                professorN = prof,
+                courseComment = courseComments,
+                commenterName = commenterName
+
+            )
+ 
+            return HttpResponseRedirect('/coursePage?submitted=True')
+        else:
+            form = CommentForm
+            if 'submitted' in request.GET:
+                submitted = True
+
+            for courseReq in courseList:
+                if courseReq.courseName.lower() == course.lower():
+                    for commentReq in commentList:
+                        if commentReq.courseName.lower() == searchPageViews.course.lower():
+                            coursecom.append(commentReq)
+
+                    return render(request, 'coursePage/coursePage.html', {'courseName' : courseReq.courseName.upper(),
+                        'courseProfessors': courseReq.courseProfessors,
+                        'courseSummary': courseReq.courseSummary,
+                        'courseTutors': courseReq.courseTutors,
+                        'form':form,
+                        'submitted':submitted,
+                        'allComments': coursecom})
     else:
         return redirect('http://127.0.0.1:8000/signIn')

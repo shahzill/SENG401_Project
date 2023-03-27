@@ -38,7 +38,7 @@ def profPage(request, name, id,courseName):
                                 return render(request, 'profPage/profPage.html', {
                                 'courseProfessors': prof})
             
-   
+            # if  or courseReq.courseName.lower() == courseName.lower():
                 
        
     else:

@@ -7,5 +7,5 @@ class applyTutorForm(ModelForm):
 
     class Meta:
         model = Applicant
-        fields = ['appUCID', 'appFullName', 'appEmail', 'appPhoneNum', 'course', 'major','year']
+        fields = ['appFName', 'appLName', 'appUCID', 'course', 'major', 'year', 'ques1','ques2']
         

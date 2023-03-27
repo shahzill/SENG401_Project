@@ -11,7 +11,7 @@ from signIn import views
 
 def register(request):
     views.loggedIn = 0
-    form = form = CreateUserForm()
+    form = CreateUserForm()
     
     if request.method == 'POST':
         form = CreateUserForm(request.POST)

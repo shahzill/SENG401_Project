@@ -1,8 +1,8 @@
-
+{% extends 'studenthub\base.html' %}
 {% load static %}
 {% block content %}
 <head>
-  <link rel="stylesheet" href="{% static '/tutorPage.css' %}">
+  <link rel="stylesheet" href="{% static '\main.css' %}">
 </head>
 
 
@@ -10,49 +10,47 @@
       <div class="becomeTutorPage">
         <h1>Apply To Become A Tutor</h1>
           <form method="POST">
-            {% csrf_token %}
-            <div class="form-group">
-              <label for={{form.appUCID}}<b>UCID: </b></label>
-              {{form.appUCID}}
-            </div>
-            <div class="form-group">
-              <label for={{form.appFullName}}<b>Full Name: </b></label>
-              {{form.appFullName}}
-            </div>
-            <div class="RegUCID-Bar">
-              <label for={{form.appEmail}}<b>Email Address: </b></label>
-              {{form.appEmail}}
-            </div>
-            <div class="RegUCID-Bar">
-              <label for={{form.appPhoneNum}}<b>Phone Number: </b></label>
-              {{form.phoneNum}}
-            </div>
-            <div class="RegUCID-Bar">
-              <label for={{form.course}}<b>Course to Tutor: </b></label>
-              {{form.course}}
-            </div>
-            <div class="RegUCID-Bar">
-              <label for={{form.major}}<b>Major: </b></label>
-              {{form.major}}
-            </div>
-            <div class="RegUCID-Bar">
-              <label for={{form.year}}<b>Year: </b></label>
-              {{form.year}}
-            </div>
-            <button type ="submit">Submit</button>
+            <fieldset>
+              {% csrf_token %}
+          
+              <div class="form-control">
+                <label for=appFName<b><strong>First Name: </strong></b></label>
+                {{form.appFName}}
+              </div>
+              <div class="form-control">
+                <label for=appLName<b><strong>Last Name: </strong></b></label>
+                {{form.appLName}}
+              </div>
+              <div class="form-control">
+                <label for=appUCID<b><strong>UCID: </strong></b></label>
+                {{form.appUCID}}
+              </div>
+              <div class="form-control">
+                <label for=courses<b><strong>Choose a course to tutor </strong></b></label>
+                {{form.course}}
+              </div>
+              <div class="form-control">
+                <label for=appMajor<b><strong>Major: </strong></b></label>
+                {{form.major}}
+              </div>
+              <div class="form-control">
+                <label for=appYear<b><strong>Year: </strong></b></label>
+                {{form.year}}
+              </div>
+              <div class="form-control">
+                <label for=appQues1<b><strong>Have you taken this course in the past? If yes, what was your grade? </strong></b></label>
+                {{form.ques1}}
+              </div>
+              <div class="form-control">
+                <label for=appQues2<b><strong>Why do you want to become a tutor for  this course? </strong></b></label>
+                {{form.ques2}}
+              </div>
+              <button type="submit">Submit</button>
 
+            </fieldset>
           </form>
           {{form.errors}}
       </div>
     </div>
-
-
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
-        {% endfor %}
-    </ul>
-    {% endif %}
 
 {% endblock %}

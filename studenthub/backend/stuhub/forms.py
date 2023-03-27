@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django import forms
 from stuhub.models import Comment
 
+
+
 class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
@@ -15,4 +17,4 @@ class CommentForm(ModelForm):
     class Meta:
         model = Comment
         fields = ('courseName', 'professorRating', 'professorN', 'courseComment', 'commenterName')
-        
+

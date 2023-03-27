@@ -11,6 +11,7 @@ from stuhub.models import Course
 
 from django.contrib import messages
 from .forms import applyTutorForm
+from django.contrib import messages
 
 
 
@@ -41,8 +42,9 @@ def becomeTutorPage(request):
     if request.method == 'POST':
         form = applyTutorForm(request.POST)
         if form.is_valid():
-            print("Yessss")
+            
             form.save()
-            return redirect('http://127.0.0.1:8000')
+            messages.info(request, 'Your application has been submitted!')
+            return redirect('http://127.0.0.1:8000/tutorPage/becomeTutorPage/')
     
     return render(request, 'becomeTutorPage/becomeTutor.html', {'form':form})

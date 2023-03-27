@@ -9,6 +9,15 @@
     <div class="Page">  
       <div class="becomeTutorPage">
         <h1>Apply To Become A Tutor</h1>
+        {% if messages %}
+          <ul class="messages">
+              {% for message in messages %}
+              <div class="alert alert-success" role="alert">
+                {{message}}
+              </div>
+              {% endfor %}
+          </ul>
+        {% endif %}
           <form method="POST">
             <fieldset>
               {% csrf_token %}
@@ -50,6 +59,7 @@
             </fieldset>
           </form>
           {{form.errors}}
+          
       </div>
     </div>
 

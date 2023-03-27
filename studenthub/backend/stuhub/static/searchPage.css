@@ -71,7 +71,10 @@ a {
 
 .course-list{
     max-width:200px;
-    height:200px;
+    height:300px;
     overflow-y:scroll;
     list-style-type: none;
 }
+
+
+

@@ -31,6 +31,12 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.courseName
+
+class CourseRequest(models.Model):
+    courseName = models.CharField('Course Name', max_length=100)
+
+    def __str__(self):
+        return self.courseName
       
 
 

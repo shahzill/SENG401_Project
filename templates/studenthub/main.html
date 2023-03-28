@@ -7,7 +7,17 @@
     <div class="Page"> 
     
     <h1>Welcome to the UofC Student Hub :)</h1>
+    
       <div>
+        {% if messages %}
+          <ul class="messages">
+              {% for message in messages %}
+              <div class="alert alert-success" role="alert">
+                {{message}}
+              </div>
+              {% endfor %}
+          </ul>
+        {% endif %}
         <div class="login">
           <div> Please click the button to sign in to your account </div>
           <a href = "{% url 'signInPage' %}">

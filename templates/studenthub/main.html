@@ -1,0 +1,29 @@
+{% extends 'studenthub\base.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <link rel="stylesheet" href="{% static '\main.css' %}">
+</head>
+    <div class="Page"> 
+    
+    <h1>Welcome to the UofC Student Hub :)</h1>
+      <div>
+        <div class="login">
+          <div> Please click the button to sign in to your account </div>
+          <a href = "{% url 'signInPage' %}">
+          <button className="SignIn">SignIn</button>
+          </a>
+                
+        </div>
+
+        <div class="Register">
+            <div> Please click the button to register for the Student Hub </div>
+            <a href = "{% url 'registerPage' %}">
+            <button className="Register">Register</button>
+            </a>
+                  
+        </div>
+      </div>
+       
+      </div>
+      {% endblock %}

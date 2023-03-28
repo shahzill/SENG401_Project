@@ -1,0 +1,66 @@
+{% extends 'studenthub\base.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <link rel="stylesheet" href="{% static '\main.css' %}">
+</head>
+
+
+    <div class="Page">  
+      <div class="becomeTutorPage">
+        <h1>Apply To Become A Tutor</h1>
+        {% if messages %}
+          <ul class="messages">
+              {% for message in messages %}
+              <div class="alert alert-success" role="alert">
+                {{message}}
+              </div>
+              {% endfor %}
+          </ul>
+        {% endif %}
+          <form method="POST">
+            <fieldset>
+              {% csrf_token %}
+          
+              <div class="form-control">
+                <label for=appFName<b><strong>First Name: </strong></b></label>
+                {{form.appFName}}
+              </div>
+              <div class="form-control">
+                <label for=appLName<b><strong>Last Name: </strong></b></label>
+                {{form.appLName}}
+              </div>
+              <div class="form-control">
+                <label for=appUCID<b><strong>UCID: </strong></b></label>
+                {{form.appUCID}}
+              </div>
+              <div class="form-control">
+                <label for=courses<b><strong>Choose a course to tutor </strong></b></label>
+                {{form.course}}
+              </div>
+              <div class="form-control">
+                <label for=appMajor<b><strong>Major: </strong></b></label>
+                {{form.major}}
+              </div>
+              <div class="form-control">
+                <label for=appYear<b><strong>Year: </strong></b></label>
+                {{form.year}}
+              </div>
+              <div class="form-control">
+                <label for=appQues1<b><strong>Have you taken this course in the past? If yes, what was your grade? </strong></b></label>
+                {{form.ques1}}
+              </div>
+              <div class="form-control">
+                <label for=appQues2<b><strong>Why do you want to become a tutor for  this course? </strong></b></label>
+                {{form.ques2}}
+              </div>
+              <button type="submit">Submit</button>
+
+            </fieldset>
+          </form>
+          {{form.errors}}
+          
+      </div>
+    </div>
+
+{% endblock %}

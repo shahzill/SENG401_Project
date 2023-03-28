@@ -1,0 +1,43 @@
+{% extends 'studenthub\base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'registerStyle/register.css' %}">
+<img src="{% static 'images/UofC-Logo.jpg' %}" alt="UofC-Logo">
+    <div class="Page">  
+      <div class="Register">
+          <h1> Register </h1>
+          <form method="post" action ="">
+            {% csrf_token %}
+            <div class="RegFirstName-Bar">
+              <label for="regFName-input"><b>First Name</b></label>
+              {{form.first_name}}
+            </div>
+              <div class="RegLName-Bar">
+                <label for="regLName-input"><b>Last Name</b></label>
+                {{form.last_name}}
+              </div>
+              <div class="RegUCID-Bar">
+                <label for="regucid-input"><b>UCID</b></label>
+                {{form.username}}
+              </div>
+              <div class="RegPassword1-Bar">
+                <label for="regpassword1-input"><b>Password</b></label>
+                {{form.password1}}
+              </div>
+              <div className="RegPassword2-Bar">
+                <label for="regpassword2-input"><b>Password confirmation</b></label>
+                {{form.password2}}
+              </div>
+              <button type="submit"> Register </button>
+              <div class="container signin">
+                <p>Already have an account? <a href="{% url 'signInPage' %}">Sign in</a>.</p>
+              </div>
+          </form>
+          {{form.errors}}
+        
+        
+      </div>
+  
+    </div>
+
+{% endblock %}

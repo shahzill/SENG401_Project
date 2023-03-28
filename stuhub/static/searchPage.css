@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'Verdana';
+    src: url('https://fonts.googleapis.com/css2?family=Verdana');
+}
+
+body{
+    background-color: whitesmoke;
+    color: rgb(36, 51, 57);
+    font-family:'Courier New', Courier, monospace
+}
+
+
+.Page {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    padding: 0 20%;
+}
+
+.SearchPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5%;
+    gap: 30px;
+}
+
+.SearchCoursesBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   
+}
+.test{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bolder;
+    color: #071013;
+    text-transform: uppercase;
+
+   }
+   
+.name{    
+    padding-bottom: 5%;
+}
+
+h2{
+    font-size: 20px;
+    color: #9c6143;
+    text-transform: uppercase;
+    font-weight: bold;
+    /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+
+}
+
+p, li{
+    color: #071013;
+
+}
+
+a {
+    color: #9c6143;
+}
+
+.course-list{
+    max-width:200px;
+    height:300px;
+    overflow-y:scroll;
+    list-style-type: none;
+}
+
+
+

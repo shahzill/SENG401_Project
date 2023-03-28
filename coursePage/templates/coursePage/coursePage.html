@@ -1,0 +1,121 @@
+{% extends 'studenthub\base.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <link rel="stylesheet" href="{% static 'coursePage.css' %}">
+</head>
+    <div class="Page">  
+     
+  
+      <div class="CoursePage">
+          <h1> Course Page: {{ courseName }}  </h1>
+
+          <div className="CourseName">
+              
+            <h2>Course Overview:</h2> {{ courseSummary }}</p>     
+          </div>
+
+          
+            <div class="CourseProfessors">
+              <h2>Course Professors:</h2>
+                {% for prof in courseProfessors.all %}
+                  
+                  <li><a href="/profPage/{{prof}}/{{prof.profID}}/{{courseName}}">{{ prof }} </a> 
+                  </li>
+              
+                {% endfor %}
+              </p>
+                  
+            </div>
+
+            <div className="CourseTutors">
+              <h2> Tutors: </h2>
+                {% for tutors in courseTutors.all %}
+                  
+                  <li><a href="/tutorPage/{{tutors}}/{{tutors.tutorID}}">{{ tutors }} </a>
+                    <div className="EmailAddress">
+                      <p>Email Address : {{ tutors.tutorEmailAddress }}</p>
+                    </div>
+                  </li>
+              
+                {% endfor %}
+              </p>     
+            </div>
+
+
+            <div class="CourseComments">
+              <h3>Course Comments : </h3>
+                {% for comments in allComments %}
+                
+                <div class="comments">
+                <p>
+                  <div class="field">Professors's Name:</div> {{ comments.professorN }}
+                  <br>
+                  <div class="field">Comment:</div>  {{ comments.courseComment }}
+                  <br>
+                  <div class="field">Will you take this course with this professor again?</div>  {{ comments.professorRating}}
+                  <br>
+                  <div class="field">Commenter's Name: </div> {{ comments.commenterName }}
+                </p>
+              </div>
+                <br>
+              
+                {% endfor %}
+               
+            </div>
+
+            
+
+            <div class="AddComments">
+              {% if submitted %}
+              <div class="alert alert-success" role="alert">
+                <p>Your comment was submitted!</p>
+              </div>
+              {% else %}
+
+                <form action="" method="POST">
+                  {% csrf_token %}
+
+                  <h3>Leave a comment! </h3>
+
+                 <div class="comment-fields">
+                  <div>Professor: </div> 
+                  <div>
+                    <select type="text" name="ProfName" required>
+                      {% for prof in courseProfessors.all %}
+                    
+                        <option value="{{prof}}">{{prof.profName}}</option>
+                
+                      {% endfor %}
+                    </select>
+                  </div>
+                  <div>Course Comments:</div> 
+                  <div> <input type="text" name="Comment" required></div>
+    
+                  <div>Will you take this course with this professor again? :</div>
+                  <div> <input type="text" name="ProfRating" required> </div> 
+                  <div >Commenter's Name : </div>
+                  <div> <input type="text" name="CommenterName" required> </div>
+                  
+                  <input type="submit" value="Submit" class="btn btn-secondary">
+                </form>
+            </div>
+              {% endif %}
+          
+
+
+            </div>
+
+            <div className="BackToSeachPage">
+              <a href="/searchPage"> Search another course?</a>
+
+              <a href="/tutorPage/becomeTutorPage"> Become a Tutor</a>
+            </div>
+
+          
+          
+      </div>
+  
+    </div>
+
+{% endblock %}

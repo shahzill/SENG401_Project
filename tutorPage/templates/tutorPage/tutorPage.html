@@ -1,0 +1,36 @@
+{% extends 'studenthub\base.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <link rel="stylesheet" href="{% static '/tutorPage.css' %}">
+</head>
+    <div class="Page">  
+     
+  
+      <div class="tutorPage">
+        <h1 class="name">{{courseTutors.tutorName}}</h1>
+
+        <div class="intro">  <p> Hi! My name is <strong>{{courseTutors.tutorName}}</strong> and welcome to my page </p>  </div>
+       
+        <div className="Id">
+          <p>My official ID is <strong>{{courseTutors.tutorID}}</strong> </p>
+              
+        </div>
+
+        <div className="Contact">
+          <p>You can either reach me at my official email <strong>{{courseTutors.tutorEmailAddress}}</strong> 
+          or my cell number <strong>{{courseTutors.tutorPhoneNumber}}</strong> </p>
+              
+        </div>
+
+        <div className="About">
+          <p> <strong>Well lets get to know me a little bit more!</strong></p>
+          <p>{{courseTutors.tutorAbout}}</p> 
+              
+        </div>
+
+        <div className="BackToCoursePage"><a href="/coursePage"> Back to the course page</a></div>
+  
+    </div>
+
+{% endblock %}

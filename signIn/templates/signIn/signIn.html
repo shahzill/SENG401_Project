@@ -6,10 +6,7 @@
 <img src="{% static 'images/UofC-Logo.jpg' %}" alt="UofC-Logo">
 
     <div class="Page">  
-  
-        <div class="signIn">
-          <h1> Login </h1>
-          {% if messages %}
+      {% if messages %}
           <ul class="messages">
               {% for message in messages %}
               <div class="alert alert-danger" role="alert">
@@ -18,6 +15,9 @@
               {% endfor %}
           </ul>
         {% endif %}
+        <div class="signIn">
+          <h1> Login </h1>
+          
 
           <form method="POST" action="">
             {% csrf_token %}

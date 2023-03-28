@@ -1,1 +1,1 @@
-web: gunicorn studenthub.wsgi --log-file -
+web: gunicorn stuhub.wsgi --log-file -

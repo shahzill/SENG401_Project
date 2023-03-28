@@ -42,4 +42,4 @@ def profPage(request, name, id,courseName):
                 
        
     else:
-       return redirect('http://127.0.0.1:8000/signIn')
+       return redirect('https://uofcstudenthub.up.railway.app/signIn')

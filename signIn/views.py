@@ -17,7 +17,7 @@ def signIn(request):
         if user is not None:
             login(request,user)
             loggedIn = 1
-            return redirect('http://127.0.0.1:8000/searchPage')
+            return redirect('https://uofcstudenthub.up.railway.app/searchPage')
         else:
             messages.info(request, 'Username or Password incorrect')
 

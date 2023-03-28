@@ -57,7 +57,7 @@ def coursePage(request):
                     'allComments': coursecom})
        
     else:
-       return redirect('http://127.0.0.1:8000/signIn')
+       return redirect('https://uofcstudenthub.up.railway.app/signIn')
 
 
 def add_comment(request):
@@ -119,4 +119,4 @@ def coursePageLink(request,course):
                         'submitted':submitted,
                         'allComments': coursecom})
     else:
-        return redirect('http://127.0.0.1:8000/signIn')
+        return redirect('https://uofcstudenthub.up.railway.app/signIn')

@@ -38,7 +38,7 @@ def searchPage(request):
         for courseReq in courseList:
             if courseReq.courseName.lower() == course.lower():
               newCourse = True
-              return redirect('http://127.0.0.1:8000/coursePage') 
+              return redirect('https://uofcstudenthub.up.railway.app/coursePage') 
         
         if newCourse == False:
                 submitted = True
@@ -53,7 +53,7 @@ def searchPage(request):
     if authentication == 1:
         return render(request, 'searchPage/searchPage.html', {'courseList': courseList, 'submitted':submitted})
     else:
-       return redirect('http://127.0.0.1:8000/signIn')
+       return redirect('https://uofcstudenthub.up.railway.app/signIn')
 
 
     

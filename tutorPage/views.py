@@ -32,7 +32,7 @@ def tutorPage(request, name, id):
                             'courseTutors': tutor})
        
     else:
-       return redirect('http://127.0.0.1:8000/signIn')
+       return redirect('https://uofcstudenthub.up.railway.app/signIn')
 
 
 
@@ -45,6 +45,6 @@ def becomeTutorPage(request):
             
             form.save()
             messages.info(request, 'Your application has been submitted!')
-            return redirect('http://127.0.0.1:8000/tutorPage/becomeTutorPage/')
+            return redirect('https://uofcstudenthub.up.railway.app/tutorPage/becomeTutorPage/')
     
     return render(request, 'becomeTutorPage/becomeTutor.html', {'form':form})
